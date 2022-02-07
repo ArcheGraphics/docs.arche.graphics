@@ -9,12 +9,12 @@ const config = {
   title: 'My Site',
   tagline: 'Dinosaurs are cool',
   url: 'https://digitalarche.netlify.app',
-  baseUrl: '/website',
+  baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'digitalarche', // Usually your GitHub org/user name.
+  projectName: 'docs.digitalarche', // Usually your repo name.
 
   presets: [
     [

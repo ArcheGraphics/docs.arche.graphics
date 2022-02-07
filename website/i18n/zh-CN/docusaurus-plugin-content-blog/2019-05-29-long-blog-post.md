@@ -1,8 +1,10 @@
 ---
-slug: long-blog-post
+slug: 长博客帖子
 title: Long Blog Post
 authors: endi
-tags: [hello, docusaurus]
+tags:
+  - hello
+  - docusaurus
 ---
 
 This is the summary of a very long blog post,

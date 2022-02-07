@@ -12,7 +12,6 @@ English | [中文]
 The static document is the official document of [DigitalArche](https://digitalarche.com), based
 on [docusaurus](https://docusaurus.io/)
 And hosted on [Netlify](https://www.netlify.com), multilingual services powered by [Crowdin](https://crowdin.com).
----
 
 <details>
   <summary>Tips for Documentation Website Maintainers</summary>
@@ -41,8 +40,6 @@ website in your desired locale locally. Note you may need to set the correspondi
 You need to periodically check/refactor the file structure on Crowdin for any source file refactor. Please see more
 details [here](https://docusaurus.io/docs/i18n/crowdin#maintaining-your-site).
 </details>
-
----
 
 ## Prerequisites
 

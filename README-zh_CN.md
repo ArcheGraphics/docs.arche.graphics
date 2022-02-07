@@ -4,13 +4,13 @@
 [![Crowdin](https://badges.crowdin.net/digitalarche/localized.svg)](https://crowdin.com/project/digitalarche)
 
 [English]:./README.md
+
 [中文]:./README-zh_CN.md
 
 [English] | 中文
 
 文本档是 [DigitalArche](https://digitalarche.com) 的官方文档, 基于 [docusaurus](https://docusaurus.io/)
-
----
+并且托管于 [Netlify](https://www.netlify.com), 多语言服务由 [Crowdin](https://crowdin.com) 提供支持。
 
 <details>
   <summary>给文档站维护者的提示</summary>
@@ -36,8 +36,6 @@
 为了适配源文件可能的重构, 你需要不定期地检查或重构 Crowdin 上的文件结构. 更多细节请参考[这里](https://docusaurus.io/docs/i18n/crowdin#maintaining-your-site).
 </details>
 
----
-
 ## 项目准备
 
 在开始本项目前, 你需要安装以下工具:
@@ -62,7 +60,9 @@ sudo apt install yarn
 sudo pacman -S yarn
 ```
 
-3. 在 Windows 上, 你需要首先安装 Node.js. 你可以在终端中运行 `node -v` 以检查它是否安装. 确认 Node.js 安装后, 从 yarn 的官方站点下载 [Yarn installer(.smi)](https://classic.yarnpkg.com/en/docs/install#windows-stable) 并安装它. 安装完毕后, 运行 `yarn --version` 以检查是否安装成功.
+3. 在 Windows 上, 你需要首先安装 Node.js. 你可以在终端中运行 `node -v` 以检查它是否安装. 确认 Node.js 安装后, 从 yarn
+   的官方站点下载 [Yarn installer(.smi)](https://classic.yarnpkg.com/en/docs/install#windows-stable) 并安装它. 安装完毕后,
+   运行 `yarn --version` 以检查是否安装成功.
 
 ## 项目设置
 
@@ -93,7 +93,8 @@ sudo npm install -g yarn
 
 #### Development Server 的 issues
 
-如果你遇到了 `TypeError: Cannot read property 'latest' of undefined` 错误, 请尝试删除 `website/node_modules` 和 `website/yarn.lock`, 然后重新运行 `install` 命令. 该问题可参考[这里](https://github.com/facebook/docusaurus/issues/5106).
+如果你遇到了 `TypeError: Cannot read property 'latest' of undefined` 错误, 请尝试删除 `website/node_modules` 和 `website/yarn.lock`,
+然后重新运行 `install` 命令. 该问题可参考[这里](https://github.com/facebook/docusaurus/issues/5106).
 
 ## 本地开发
 
@@ -117,9 +118,13 @@ yarn --cwd=website build
 yarn --cwd=website serve
 ```
 
-## 多版本
+## 本地化
 
-该站点采用了 docusaurus 提供的多版本机制, 要了解更多细节, 请访问 docusaurus [关于多版本的文档](https://docusaurus.io/docs/versioning).
+我们推荐以下的翻译流程：
+
+1. 上传源文件至 Crowdin（未翻译文件）: ```yarn run crowdin upload```
+2. 使用 [Crowdin](https://crowdin.com/project/digitalarche) 来翻译内容
+3. 从 Crowdin 下载译文（本地化的翻译文件）: ```yarn run crowdin download```
 
 ## 部署
 

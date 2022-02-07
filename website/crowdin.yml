@@ -1,7 +1,7 @@
 #
 # Your Crowdin credentials
 #
-"project_id": "498504"
+"project_id": "498532"
 "api_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ3UUVxdmhVM3ZMT2EyWGljbVV5VCIsImp0aSI6Ijk4OWY3NGM4MzM3YjA0ZWJmMWI2NmNlNTFjMmVjNDAyMzNkN2E2NjczYzlhYjM5Njc1Y2U5MWM0N2VhYWIxNjQzMWM1ZTcwMGI1MDMwYzY5IiwiaWF0IjoxNjQ0MjIxMjg1LCJuYmYiOjE2NDQyMjEyODUsImV4cCI6MTY0NjgxMzI4NSwic3ViIjoiMTUxMzg4MDYiLCJkb21haW4iOm51bGwsInNjb3BlcyI6WyJwcm9qZWN0Il0sImFzc29jaWF0aW9ucyI6WyIqIl0sInNlc3Npb24iOjB9.Q2TFcSRpNJkpOwQWvZNXxQy3czhb3od2Pm0p6AKe4tXvhlc90LHdrd9i3ZVvLKWq1OMkGohQrvaa0AuaYEY3vYiPSV_5K0G6eEXS5S3GClZXae_rIRUPaAl8JXgjMiWbWm0Yfo0WgyAY2PzqKw7AG_StEDxstmpMeBguIJ4Uq77ujoOycrKcXh4r4zFJzSy1OBgqc92Sof6Xiqh1OcuVLWAqsc4PBCWQyIn_sONtmdHQDr2A97mo3KkAgpnJTXX7AzVbZrst2HRVpGXkVYUbTcXRsySniIr4JwSHyoOfwwad76bUEaJKEbBruC7HqFdlXpPixqnnDcGR50wCvQc7tHiHmcF4gg7-PzOFODiYiclkS8TYBXrDupAt1m_xCT2IkIDWFMWPYOFOWOCCY0MuMTXsbHHaV7fNtuhpnhtHJxXuvS_alQhAgFdW6hGjMr16s1Mz_kmTJIQ10zRjCAxXgYvR0vKo3k5jgEWjW9kmzdETWjGlurUyerTmV19fvziX6uVptmmWBGoWfwfqscclMQ41wNy5FhNJxqABSogj97ggalWyL8nM-A0WSgsB9z5jPah7WzYYqHzbepdU_evGNjVun3o7RVosl5WsvLT3OpPQeuLugu-uSiXRYPDImdapTw2zhZAJ572oUOPehjP04KDboPLM0N55J4J6wQvspFQ"
 "base_path": "."
 "base_url": "https://api.crowdin.com"
@@ -18,17 +18,18 @@
 files: [
   {
     "source": "/docs/**/*",
-    "translation": "/i18n/%locale%/docusaurus-plugin-content-docs/current/**/%original_file_name%",
+    "translation": "/i18n/%osx_locale%/docusaurus-plugin-content-docs/current/**/%original_file_name%",
+    "ignore" : ["/**/**/*.jpeg", "/**/*.jpeg"]
   },
   {
     "source": "/blog/**/*",
-    "translation": "/i18n/%locale%/docusaurus-plugin-content-blog/**/%original_file_name%",
+    "translation": "/i18n/%osx_locale%/docusaurus-plugin-content-blog/**/%original_file_name%",
 
     #
     # Files or directories for ignore
     # e.g. ["/**/?.txt", "/**/[0-9].txt", "/**/*\?*.txt"]
     #
-    #"ignore" : [],
+    "ignore" : ["/**/**/*.jpeg", "/**/*.jpeg"]
 
     #
     # The dest allows you to specify a file name in Crowdin

@@ -1,5 +1,5 @@
 ---
-slug: 长博客帖子
+slug: long-blog-post
 title: Long Blog Post
 authors: endi
 tags:

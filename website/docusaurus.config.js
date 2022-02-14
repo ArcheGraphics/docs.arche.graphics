@@ -41,7 +41,7 @@ const config = {
             },
 
             navbar: {
-                title: null,
+                title: "Arche Graphics",
                 hideOnScroll: false,
                 logo: {
                     alt: 'Arche Graphics',

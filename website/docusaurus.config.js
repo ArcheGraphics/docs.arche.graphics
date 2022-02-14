@@ -6,15 +6,15 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-    title: 'DigitalArche Docs',
+    title: 'Arche Graphics Docs',
     tagline: 'Cross-Platform Engine based on WebGPU(Dawn)',
-    url: 'https://digitalarche.com',
+    url: 'https://arche.graphics',
     baseUrl: '/',
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'warn',
     favicon: 'img/favicon.ico',
-    organizationName: 'digitalarche', // Usually your GitHub org/user name.
-    projectName: 'docs.digitalarche', // Usually your repo name.
+    organizationName: 'Arche Graphics', // Usually your GitHub org/user name.
+    projectName: 'docs.arche.graphics', // Usually your repo name.
 
     i18n: {
         defaultLocale: 'en',
@@ -48,9 +48,9 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
         ({
             navbar: {
-                title: 'DigitalArche',
+                title: 'Arche',
                 logo: {
-                    alt: 'DigitalArche',
+                    alt: 'Arche',
                     src: 'img/logo.svg',
                 },
                 items: [
@@ -70,7 +70,7 @@ const config = {
                         position: 'right',
                     },
                     {
-                        href: 'https://github.com/yangfengzzz/DigitalArche',
+                        href: 'https://github.com/ArcheGraphics',
                         label: 'GitHub',
                         position: 'right',
                     },
@@ -106,12 +106,12 @@ const config = {
                             },
                             {
                                 label: 'GitHub',
-                                href: 'https://github.com/yangfengzzz/DigitalArche',
+                                href: 'https://github.com/ArcheGraphics',
                             },
                         ],
                     },
                 ],
-                copyright: `Copyright © ${new Date().getFullYear()} DigitalArche. Built with Docusaurus.`,
+                copyright: `Copyright © ${new Date().getFullYear()} Arche Graphics. Built with Docusaurus.`,
             },
             prism: {
                 theme: lightCodeTheme,

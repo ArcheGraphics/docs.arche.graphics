@@ -1,6 +1,6 @@
-# DigitalArche 文档站
+# Arche.Graphics 文档站
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/6efa698d-b180-4836-a596-09167462b860/deploy-status)](https://app.netlify.com/sites/digitalarche/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/6efa698d-b180-4836-a596-09167462b860/deploy-status)](https://app.netlify.com/sites/archegraphics/deploys)
 [![Crowdin](https://badges.crowdin.net/digitalarche/localized.svg)](https://crowdin.com/project/digitalarche)
 
 [English]:./README.md
@@ -9,7 +9,7 @@
 
 [English] | 中文
 
-文本档是 [DigitalArche](https://digitalarche.com) 的官方文档, 基于 [docusaurus](https://docusaurus.io/)
+文本档是 [Arche Graphics](https://arche.graphics) 的官方文档, 基于 [docusaurus](https://docusaurus.io/)
 并且托管于 [Netlify](https://www.netlify.com), 多语言服务由 [Crowdin](https://crowdin.com) 提供支持。
 
 <details>

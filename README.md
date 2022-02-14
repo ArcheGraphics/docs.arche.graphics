@@ -1,6 +1,6 @@
-# DigitalArche Documentation Site
+# Arche.Graphics Documentation Site
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/6efa698d-b180-4836-a596-09167462b860/deploy-status)](https://app.netlify.com/sites/digitalarche/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/6efa698d-b180-4836-a596-09167462b860/deploy-status)](https://app.netlify.com/sites/archegraphics/deploys)
 [![Crowdin](https://badges.crowdin.net/digitalarche/localized.svg)](https://crowdin.com/project/digitalarche)
 
 [English]:./README.md
@@ -9,7 +9,7 @@
 
 English | [中文]
 
-The static document is the official document of [DigitalArche](https://digitalarche.com), based
+The static document is the official document of [Arche Graphics](https://arche.graphics), based
 on [docusaurus](https://docusaurus.io/)
 And hosted on [Netlify](https://www.netlify.com), multilingual services powered by [Crowdin](https://crowdin.com).
 

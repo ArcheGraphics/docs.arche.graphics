@@ -12,7 +12,7 @@ const config = {
     baseUrl: '/',
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'warn',
-    favicon: 'img/favicon.ico',
+    favicon: 'img/logo.svg',
     organizationName: 'Arche Graphics', // Usually your GitHub org/user name.
     projectName: 'docs.arche.graphics', // Usually your repo name.
 
@@ -21,53 +21,52 @@ const config = {
         locales: ['en', 'zh-Hans'],
     },
 
-    presets: [
-        [
-            'classic',
-            /** @type {import('@docusaurus/preset-classic').Options} */
-            ({
-                docs: {
-                    sidebarPath: require.resolve('./sidebars.js'),
-                    // Please change this to your repo.
-                    editUrl: 'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-                },
-                blog: {
-                    showReadingTime: true,
-                    // Please change this to your repo.
-                    editUrl:
-                        'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-                },
-                theme: {
-                    customCss: require.resolve('./src/css/custom.css'),
-                },
-            }),
-        ],
-    ],
-
     themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
         ({
+            hideableSidebar: true,
+            // Optional banner
+            // announcementBar: {
+            //   id: 'under-construction-banner',
+            //   content:
+            //     'Please help us by contributing documentation, corrections and translations! Thank you 😃',
+            //   backgroundColor: '#0891b2',
+            //   textColor: '#E5E7EB',
+            //   isCloseable: false,
+            // },
+            prism: {
+                defaultLanguage: 'c++',
+                theme: lightCodeTheme,
+                darkTheme: darkCodeTheme,
+            },
+
             navbar: {
-                title: 'Arche',
+                title: null,
+                hideOnScroll: false,
                 logo: {
-                    alt: 'Arche',
+                    alt: 'Arche Graphics',
                     src: 'img/logo.svg',
+                    href: 'https://arche.graphics/docs/intro',
                 },
                 items: [
                     {
                         type: 'doc',
                         docId: 'intro',
-                        position: 'left',
-                        label: 'Tutorial',
+                        position: 'right',
+                        label: 'Docs',
                     },
                     {
                         to: '/blog',
-                        position: 'left',
+                        position: 'right',
                         label: 'Blog',
                     },
                     {
                         type: 'localeDropdown',
                         position: 'right',
+                        dropdownItemsBefore: [],
+                        dropdownItemsAfter: [
+                            // {to: '/versions', label: 'All versions'}
+                        ],
                     },
                     {
                         href: 'https://github.com/ArcheGraphics',
@@ -113,11 +112,44 @@ const config = {
                 ],
                 copyright: `Copyright © ${new Date().getFullYear()} Arche Graphics. Built with Docusaurus.`,
             },
-            prism: {
-                theme: lightCodeTheme,
-                darkTheme: darkCodeTheme,
+            colorMode: {
+                switchConfig: {
+                    darkIcon: '🌙',
+                    lightIcon: '☀️',
+                }
             },
         }),
+
+    presets: [
+        [
+            'classic',
+            /** @type {import('@docusaurus/preset-classic').Options} */
+            ({
+                docs: {
+                    sidebarPath: require.resolve('./sidebars.js'),
+                    // Please change this to your repo.
+                    editUrl: 'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+                    editCurrentVersion: true,
+                    showLastUpdateAuthor: true,
+                    showLastUpdateTime: true,
+                    versions: {
+                        current: {
+                            label: 'develop',
+                        },
+                    },
+                },
+                blog: {
+                    showReadingTime: true,
+                    // Please change this to your repo.
+                    editUrl:
+                        'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+                },
+                theme: {
+                    customCss: require.resolve('./src/css/custom.css'),
+                },
+            }),
+        ],
+    ],
 };
 
 module.exports = config;

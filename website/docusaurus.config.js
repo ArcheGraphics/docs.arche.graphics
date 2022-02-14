@@ -46,7 +46,6 @@ const config = {
                 logo: {
                     alt: 'Arche Graphics',
                     src: 'img/logo.svg',
-                    href: 'https://arche.graphics/docs/intro',
                 },
                 items: [
                     {

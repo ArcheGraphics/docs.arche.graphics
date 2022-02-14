@@ -21,3 +21,8 @@
   align-items: center;
   justify-content: center;
 }
+
+.code {
+  width: 50vw;
+  height: 70vh;
+}

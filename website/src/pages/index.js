@@ -7,6 +7,7 @@ import styles from './index.module.css';
 import {createArche} from "../code";
 import ReactMarkdown from 'react-markdown'
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
+import {atomDark} from "react-syntax-highlighter/dist/cjs/styles/prism";
 
 function HomepageHeader() {
     const {siteConfig} = useDocusaurusContext();
@@ -87,6 +88,7 @@ export default function Home() {
                                                <SyntaxHighlighter
                                                    children={String(children).replace(/\n$/, '')}
                                                    language={match[1]}
+                                                   style={atomDark}
                                                    PreTag="div"
                                                    {...props}
                                                />

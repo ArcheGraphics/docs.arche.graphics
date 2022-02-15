@@ -60,6 +60,11 @@ const config = {
                         label: 'Blog',
                     },
                     {
+                        to: '/playground',
+                        position: 'right',
+                        label: 'Playground',
+                    },
+                    {
                         type: 'localeDropdown',
                         position: 'right',
                         dropdownItemsBefore: [],

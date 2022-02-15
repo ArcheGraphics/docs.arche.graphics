@@ -4,7 +4,7 @@ import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './index.module.css';
-import {createArche} from "../code/homepage";
+import {createArche} from "../code/Homepage";
 import ReactMarkdown from 'react-markdown'
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
 import {atomDark} from "react-syntax-highlighter/dist/cjs/styles/prism";

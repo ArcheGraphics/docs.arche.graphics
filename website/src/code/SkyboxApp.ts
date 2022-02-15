@@ -12,6 +12,13 @@ import {
     SkyboxSubpass,
 } from "arche-engine";
 import {OrbitControl} from "@arche-engine/controls";
+import posx from '@site/static/assets/SkyMap/country/posx.png';
+import posy from '@site/static/assets/SkyMap/country/posy.png';
+import posz from '@site/static/assets/SkyMap/country/posz.png';
+import negx from '@site/static/assets/SkyMap/country/negx.png';
+import negy from '@site/static/assets/SkyMap/country/negy.png';
+import negz from '@site/static/assets/SkyMap/country/negz.png';
+import WoodImageUrl from '@site/static/assets/Textures/wood.png';
 
 export function createSkyboxApp() {
     const engine = new WebGPUEngine("canvas");
@@ -19,14 +26,7 @@ export function createSkyboxApp() {
     engine.init().then(() => {
         engine.resourceManager
             .load<SampledTextureCube>({
-                    urls: [
-                        "https://github.com/yangfengzzz/Assets/raw/main/SkyMap/country/posx.png",
-                        "https://github.com/yangfengzzz/Assets/raw/main/SkyMap/country/negx.png",
-                        "https://github.com/yangfengzzz/Assets/raw/main/SkyMap/country/posy.png",
-                        "https://github.com/yangfengzzz/Assets/raw/main/SkyMap/country/negy.png",
-                        "https://github.com/yangfengzzz/Assets/raw/main/SkyMap/country/posz.png",
-                        "https://github.com/yangfengzzz/Assets/raw/main/SkyMap/country/negz.png",
-                    ],
+                    urls: [posx, negx, posy, negy, posz, negz],
                     type: AssetType.TextureCube
                 }
             )
@@ -61,7 +61,7 @@ export function createSkyboxApp() {
         const renderer = cubeEntity.addComponent(MeshRenderer);
         renderer.mesh = PrimitiveMesh.createCuboid(engine, 1);
         engine.resourceManager
-            .load<SampledTexture2D>("https://github.com/yangfengzzz/Assets/raw/main/Textures/wood.png")
+            .load<SampledTexture2D>(WoodImageUrl)
             .then((texture) => {
                 const unlit = new BlinnPhongMaterial(engine)
                 unlit.baseTexture = texture;

@@ -1,0 +1,3 @@
+[submodule "website/static/assets"]
+	path = website/static/assets
+	url = https://github.com/yangfengzzz/Assets.git

@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from '@theme/Layout';
-import {createSkyboxApp} from "../../code/SkyboxApp";
+import {createSkyboxApp} from "../../../code/SkyboxApp";
 
 function App() {
     React.useEffect(() => {

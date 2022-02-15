@@ -60,9 +60,15 @@ const config = {
                         label: 'Blog',
                     },
                     {
-                        to: '/playground',
-                        position: 'right',
+                        type: 'dropdown',
                         label: 'Playground',
+                        position: 'right',
+                        items: [
+                            {
+                                to: '/playground/skybox',
+                                label: 'Playground.Skybox',
+                            }
+                        ]
                     },
                     {
                         type: 'localeDropdown',

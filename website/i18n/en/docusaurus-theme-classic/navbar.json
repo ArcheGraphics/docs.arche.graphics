@@ -15,6 +15,10 @@
     "message": "Playground",
     "description": "Navbar item with label Playground"
   },
+  "item.label.Playground.Skybox": {
+    "message": "Skybox",
+    "description": "Navbar item with label Playground Skybox"
+  },
   "item.label.GitHub": {
     "message": "GitHub",
     "description": "Navbar item with label GitHub"

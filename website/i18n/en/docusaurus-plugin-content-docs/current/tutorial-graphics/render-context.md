@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# RenderContext
+# Render Context
 
 In the whole rendering pipeline, the most important concept is the rendering context. `RenderContext` represents this
 concept and encapsulates `wgpu::SwapChain`, from which you can get the `wgpu::TextureView` required by the current frame

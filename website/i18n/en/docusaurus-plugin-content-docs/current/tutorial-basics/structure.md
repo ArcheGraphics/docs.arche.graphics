@@ -25,8 +25,8 @@ variables each time. There are no such concerns in C++, but also garbage collect
 memory leaks must be considered, for simplicity I use C++
 `std::shared_ptr` and `std::unique_ptr` of the standard library, although it is not necessarily a best practice to use
 the reference counting classes of the standard library directly, but avoiding the implementation of garbage collection
-mechanism can reduce the processing of many macros in the code, simplifying Engine code. For something like `Entity`
-For such unique entities, I use `std::unique_ptr`, and for common resource types such as `Mesh` and `Material` I
+mechanism can reduce the processing of many macros in the code, simplifying Engine code. For something like `Component`,
+the unique component depended on entities, I use `std::unique_ptr`, and for common resource types such as `Mesh` and `Material` I
 use `std::shared_ptr`.
 
 All the above have created the difference between Arche-cpp and Arche.js, but at the root, both are component entity

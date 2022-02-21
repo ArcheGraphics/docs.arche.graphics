@@ -11,9 +11,9 @@ categories:
 1. Mesh (`Mesh`): `wgpu::Buffer` corresponding to WebGPU
 2. Textures with additional samplers (`SampledTexture`): `wgpu::Texture` and `wgpu::Sampler` for WebGPU
 
-:::tip 
-`Material` are also managed through `std::shared_ptr` and can be reused on multiple `Renderers`. But
-it's not a resource, so it's not listed above.
+:::tip
+`Material` are also managed through `std::shared_ptr` and can be reused on multiple `Renderers`. But it's not a
+resource, so it's not listed above.
 :::
 
 ## Mesh
@@ -33,14 +33,16 @@ In Arche, `Mesh` is the base class for all meshes, and there are two subclasses 
 2. BufferMesh: directly set the information required by `Mesh`.
 
 The easiest way to construct a `ModelMesh` is through the `PrimitiveMesh` tool class, which provides basic geometric
-shapes including cubes, spheres, cones, capsules, etc. You can use these tool functions to quickly test the rendering effect. 
+shapes including cubes, spheres, cones, capsules, etc. You can use these tool functions to quickly test the rendering
+effect.
+
 ```cpp
 auto renderer = cubeEntity->addComponent<MeshRenderer>();
 renderer->setMesh(PrimitiveMesh::createCuboid(_device, 1));
 ```
 
-while `BufferMesh` Users need to build `wgpu::Buffer` or even `wgpu::VertexBufferLayout` by themselves. For example, in `GLTFLoader`, this
-method is used to construct the mesh from the mesh vertex data in GLTF:
+while `BufferMesh` Users need to build `wgpu::Buffer` or even `wgpu::VertexBufferLayout` by themselves. For example,
+in `GLTFLoader`, this method is used to construct the mesh from the mesh vertex data in GLTF:
 
 ```cpp
 void GLTFLoader::loadMeshes(tinygltf::Model& model) {
@@ -147,4 +149,24 @@ std::shared_ptr<SampledTexture2D> Image::createSampledTexture(wgpu::Device &devi
 }
 ````
 
+#### Cubemap
 
+Cubemap require six `Image`s, so there is no member function that directly exports cubemap in `Image`. For cubemap, the
+following methods are generally used:
+
+```cpp
+const std::string path = "SkyMap/country/";
+const std::array<std::string, 6> imageNames = {"posx.png", "negx.png", "posy.png", "negy.png", "posz.png", "negz.png"};
+std::array<std::unique_ptr<Image>, 6> images;
+std::array<Image*, 6> imagePtr;
+for (int i = 0; i < 6; i++) {
+    images[i] = Image::load(path + imageNames[i]);
+    imagePtr[i] = images[i].get();
+}
+auto cubeMap = std::make_shared<SampledTextureCube>(_device, images[0]->extent().width, images[0]->extent().height,
+                                                    images[0]->format());
+cubeMap->setPixelBuffer(imagePtr);
+```
+
+`setPixelBuffer` will loop through all `Image` and `Mipmap` information in each `Image`, and upload all the
+information to `wgpu::Texture`.

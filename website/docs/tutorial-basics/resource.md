@@ -123,4 +123,22 @@ std::shared_ptr<SampledTexture2D> Image::createSampledTexture(wgpu::Device &devi
 }
 ```
 
+#### 立方体贴图
+立方体贴图需要六张 `Image` 构成，因此在 `Image` 当中没有直接导出立方体贴图的成员函数。对于立方体贴图，一般采用以下方式：
+```cpp
+const std::string path = "SkyMap/country/";
+const std::array<std::string, 6> imageNames = {"posx.png", "negx.png", "posy.png", "negy.png", "posz.png", "negz.png"};
+std::array<std::unique_ptr<Image>, 6> images;
+std::array<Image*, 6> imagePtr;
+for (int i = 0; i < 6; i++) {
+    images[i] = Image::load(path + imageNames[i]);
+    imagePtr[i] = images[i].get();
+}
+auto cubeMap = std::make_shared<SampledTextureCube>(_device, images[0]->extent().width, images[0]->extent().height,
+                                                    images[0]->format());
+cubeMap->setPixelBuffer(imagePtr);
+```
+
+`setPixelBuffer` 会循环所有 `Image` 以及每一张 `Image` 中的 `Mipmap` 信息，将这些信息全部上传到 `wgpu::Texture` 当中。
+
 

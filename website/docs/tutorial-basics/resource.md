@@ -27,8 +27,13 @@ sidebar_position: 9
 1. ModelMesh：通过设置例如 Position，Normal在内的数据，根据设置的数据自动构造 `wgpu::VertexBufferLayout` 和各种 `Buffer`。
 2. BufferMesh：直接设置 `Mesh` 所需要的信息。
 
-其中构造 `ModelMesh` 最简单的方式，是通过 `PrimitiveMesh` 这一工具类，这一类型提供了包括立方体，球，圆锥，胶囊体等基础几何图形，可以用这些工具函数快速测试渲染的效果。 而 `BufferMesh`
-则需要用户自行构建 `wgpu::Buffer` 甚至是 `wgpu::VertexBufferLayout`，例如在 `GLTFLoader` 中，就使用了这种方式，通过 GLTF 中的网格顶点数据构造网格：
+其中构造 `ModelMesh` 最简单的方式，是通过 `PrimitiveMesh` 这一工具类，这一类型提供了包括立方体，球，圆锥，胶囊体等基础几何图形，可以用这些工具函数快速测试渲染的效果:
+```cpp
+auto renderer = cubeEntity->addComponent<MeshRenderer>();
+renderer->setMesh(PrimitiveMesh::createCuboid(_device, 1));
+```
+
+而 `BufferMesh` 则需要用户自行构建 `wgpu::Buffer` 甚至是 `wgpu::VertexBufferLayout`，例如在 `GLTFLoader` 中，就使用了这种方式，通过 GLTF 中的网格顶点数据构造网格：
 
 ```cpp
 void GLTFLoader::loadMeshes(tinygltf::Model& model) {

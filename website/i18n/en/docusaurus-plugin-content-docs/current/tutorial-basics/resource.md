@@ -12,7 +12,7 @@ categories:
 2. Textures with additional samplers (`SampledTexture`): `wgpu::Texture` and `wgpu::Sampler` for WebGPU
 
 :::tip 
-Materials `Material` are also managed through `std::shared_ptr` and can be reused on multiple `Renderers`. But
+`Material` are also managed through `std::shared_ptr` and can be reused on multiple `Renderers`. But
 it's not a resource, so it's not listed above.
 :::
 
@@ -33,9 +33,13 @@ In Arche, `Mesh` is the base class for all meshes, and there are two subclasses 
 2. BufferMesh: directly set the information required by `Mesh`.
 
 The easiest way to construct a `ModelMesh` is through the `PrimitiveMesh` tool class, which provides basic geometric
-shapes including cubes, spheres, cones, capsules, etc. You can use these tool functions to quickly test the rendering
-effect. while `BufferMesh`
-Users need to build `wgpu::Buffer` or even `wgpu::VertexBufferLayout` by themselves. For example, in `GLTFLoader`, this
+shapes including cubes, spheres, cones, capsules, etc. You can use these tool functions to quickly test the rendering effect. 
+```cpp
+auto renderer = cubeEntity->addComponent<MeshRenderer>();
+renderer->setMesh(PrimitiveMesh::createCuboid(_device, 1));
+```
+
+while `BufferMesh` Users need to build `wgpu::Buffer` or even `wgpu::VertexBufferLayout` by themselves. For example, in `GLTFLoader`, this
 method is used to construct the mesh from the mesh vertex data in GLTF:
 
 ```cpp

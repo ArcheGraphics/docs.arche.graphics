@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 5
 ---
 
 # Shader Macro
@@ -210,7 +210,7 @@ std::vector<size_t> ShaderMacroCollection::_internalMacroHashValue = {
 ## Practice in Arche.js
 
 The configuration of macros in Arche.js is similar to the above, but it is different for compatibility with macros
-in [Oasis Engine](https://github.com/oasis-engine/engine). First of all, the macro name is not directly stored
+in [Oasis Engine](https://github.com/oasis-engine/engine). First, the macro name is not directly stored
 in `ShaderMacroCollection` through map, but is uniformly declared in `Shader`:
 
 ```ts

@@ -144,3 +144,11 @@ wgpu::RenderPipeline &ResourceCache::requestRenderPipeline(wgpu::RenderPipelineD
     }
 }
 ```
+
+## Practice in Arche.js
+
+In the browser, Arche.js does not implement the above caching mechanism, because I found that for the time-consuming
+objects like `wgpu::RenderPipeline`, the build time in the browser is almost negligible. Although I have not yet found
+relevant information to prove that WebGPU implements a similar caching mechanism inside the browser, but since this
+caching mechanism is a common practice in modern graphics APIs, I believe that a similar caching mechanism like object pool may have
+been implemented internally.

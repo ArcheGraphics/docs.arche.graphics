@@ -127,3 +127,8 @@ wgpu::RenderPipeline &ResourceCache::requestRenderPipeline(wgpu::RenderPipelineD
     }
 }
 ```
+
+
+## Arche.js 中的实践
+在浏览器中，Arche.js 并没有实现上述的缓存机制，因为我发现对于像 `wgpu::RenderPipeline` 这样比较耗时的对象，浏览器中的构建时间几乎可以忽略。
+虽然目前我还没有找到相关信息证明 WebGPU 在浏览器侧内部就是实现了类似的缓存机制，但由于这种缓存机制在现代图形API中是普遍的一种操作，因此我相信内部或许已经实现了类似的对象池。

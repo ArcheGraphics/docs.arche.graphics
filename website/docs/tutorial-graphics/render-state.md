@@ -280,20 +280,25 @@ void DepthState::platformApply(wgpu::DepthStencilState *depthStencil) {
 }
 ```
 
-## TypeScript 上的调用
-TypeScript 和 C++ 在这一个地方基本上一致的：
+## Arche.js 中的实践
+Arche.js 和 Arche-cpp 在这一个地方基本上一致的：
 ```ts
-  /**
-   * @internal
-   */
-  _apply(pipelineDescriptor: RenderPipelineDescriptor,
-         encoder: GPURenderPassEncoder,
-         frontFaceInvert: boolean): void {
-    this.blendState.platformApply(pipelineDescriptor, encoder);
-    this.depthState.platformApply(pipelineDescriptor);
-    this.stencilState.platformApply(pipelineDescriptor, encoder);
-    this.rasterState.platformApply(pipelineDescriptor, frontFaceInvert);
-  }
+/**
+ * Render state.
+ */
+export class RenderState {
+    /**
+     * @internal
+     */
+    _apply(pipelineDescriptor: RenderPipelineDescriptor,
+           encoder: GPURenderPassEncoder,
+           frontFaceInvert: boolean): void {
+        this.blendState.platformApply(pipelineDescriptor, encoder);
+        this.depthState.platformApply(pipelineDescriptor);
+        this.stencilState.platformApply(pipelineDescriptor, encoder);
+        this.rasterState.platformApply(pipelineDescriptor, frontFaceInvert);
+    }
+}
 ```
 最大的差异在于在 TS 当中，如果 `RenderPipelineDescriptor` 绑定了一个对象，那么就可以直接去修改对象中的值。
 但是在 C++ 中，这些结构体中的指针都带有 const，是无法直接通过 `wgpu::RenderPipelineDescriptor` 的指针进行修改。因此，此处的函数形参更加简单。

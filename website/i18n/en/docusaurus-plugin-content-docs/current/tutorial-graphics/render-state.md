@@ -289,20 +289,25 @@ void DepthState::platformApply(wgpu::DepthStencilState *depthStencil) {
 }
 ```
 
-## Call on TypeScript
-TypeScript and C++ basically agree in this one place:
+## Practice in Arche.js
+Arche.js and Arche-cpp basically agree in this one place:
 ```ts
-  /**
-   * @internal
-   */
-  _apply(pipelineDescriptor: RenderPipelineDescriptor,
-         encoder: GPURenderPassEncoder,
-         frontFaceInvert: boolean): void {
-    this.blendState.platformApply(pipelineDescriptor, encoder);
-    this.depthState.platformApply(pipelineDescriptor);
-    this.stencilState.platformApply(pipelineDescriptor, encoder);
-    this.rasterState.platformApply(pipelineDescriptor, frontFaceInvert);
-  }
+/**
+ * Render state.
+ */
+export class RenderState {
+    /**
+     * @internal
+     */
+    _apply(pipelineDescriptor: RenderPipelineDescriptor,
+           encoder: GPURenderPassEncoder,
+           frontFaceInvert: boolean): void {
+        this.blendState.platformApply(pipelineDescriptor, encoder);
+        this.depthState.platformApply(pipelineDescriptor);
+        this.stencilState.platformApply(pipelineDescriptor, encoder);
+        this.rasterState.platformApply(pipelineDescriptor, frontFaceInvert);
+    }
+}
 ```
 The biggest difference is that in TS, if RenderPipelineDescriptor is bound to an object, you can directly modify the value in the object.
 But in C++, the pointers in these structures are all const and cannot be modified directly through the pointer of `wgpu::RenderPipelineDescriptor`. 

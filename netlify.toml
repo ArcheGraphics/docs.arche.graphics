@@ -1,0 +1,7 @@
+[[headers]]
+
+  for = "/*"
+
+  [headers.values]
+  Origin-Trial = "AtOTJGwUSpJW99fFouh2sm+HEuRgwpR2xkHP77csSuZWWpT66wzPeCkx0ay0US/e7aqvhwyK5HVQPvB1LfogoA4AAABheyJvcmlnaW4iOiJodHRwczovL2FyY2hlLmdyYXBoaWNzOjQ0MyIsImZlYXR1cmUiOiJXZWJHUFUiLCJleHBpcnkiOjE2NTI4MzE5OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="
+

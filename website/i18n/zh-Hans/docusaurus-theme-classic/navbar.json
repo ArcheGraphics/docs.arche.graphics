@@ -19,6 +19,14 @@
     "message": "天空盒",
     "description": "Navbar item with label Playground Skybox"
   },
+  "item.label.Playground.CascadeShadow": {
+    "message": "级联阴影",
+    "description": "Navbar item with label Playground Skybox"
+  },
+  "item.label.Playground.OmniShadow": {
+    "message": "全向阴影",
+    "description": "Navbar item with label Playground Skybox"
+  },
   "item.label.GitHub": {
     "message": "GitHub",
     "description": "Navbar item with label GitHub"

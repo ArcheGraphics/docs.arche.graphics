@@ -67,6 +67,14 @@ const config = {
                             {
                                 to: '/playground/skybox',
                                 label: 'Playground.Skybox',
+                            },
+                            {
+                                to: '/playground/cascade-shadow',
+                                label: 'Playground.CascadeShadow',
+                            },
+                            {
+                                to: '/playground/omni-shadow',
+                                label: 'Playground.OmniShadow',
                             }
                         ]
                     },

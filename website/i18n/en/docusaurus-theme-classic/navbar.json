@@ -19,6 +19,14 @@
     "message": "Skybox",
     "description": "Navbar item with label Playground Skybox"
   },
+  "item.label.Playground.CascadeShadow": {
+    "message": "Cascaded Shadow",
+    "description": "Navbar item with label Playground Skybox"
+  },
+  "item.label.Playground.OmniShadow": {
+    "message": "Omnidirectional Shadow",
+    "description": "Navbar item with label Playground Skybox"
+  },
   "item.label.GitHub": {
     "message": "GitHub",
     "description": "Navbar item with label GitHub"

@@ -131,10 +131,9 @@ const config = {
                 copyright: `Copyright © ${new Date().getFullYear()} Arche Graphics. Built with Docusaurus.`,
             },
             colorMode: {
-                switchConfig: {
-                    darkIcon: '🌙',
-                    lightIcon: '☀️',
-                }
+                defaultMode: 'light',
+                disableSwitch: false,
+                respectPrefersColorScheme: false,
             },
         }),
 
@@ -164,6 +163,10 @@ const config = {
                 },
                 theme: {
                     customCss: require.resolve('./src/css/custom.css'),
+                },
+                gtag: {
+                    trackingID: 'G-LLWF0LY9CT',
+                    anonymizeIP: true,
                 },
             }),
         ],

@@ -3,6 +3,8 @@ sidebar_position: 1
 ---
 
 # 物理组件概览
+![physx](https://arched-graphics.oss-cn-shanghai.aliyuncs.com/img/physx.gif)
+
 物理组件并不是游戏引擎必要的元素，但是增加物理组件可以为场景添加真实的物理反馈，增强画面的交互性。
 实时物理和离线物理一种是我个人的主要兴趣和研究方向，并且 Arche 项目将来也会向着物理编辑器和基于物理的内容生成这个方向进行发展。
 因此，在 Arche Graphics 中，特地增加了一章有关物理模拟的章节。

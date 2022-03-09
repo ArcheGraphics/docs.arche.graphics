@@ -3,6 +3,7 @@ sidebar_position: 10
 ---
 
 # Resource: FBX Format
+![fbx](https://arched-graphics.oss-cn-shanghai.aliyuncs.com/img/animation.gif)
 
 Arche uses [FBX SDK](https://www.autodesk.com/developer-network/platform-technologies/fbx-sdk-2016-1-2) to load FBX
 format files, FBX files are primarily used by CPU skinning animation systems. Therefore, on `SkinnedMeshRenderer`, the

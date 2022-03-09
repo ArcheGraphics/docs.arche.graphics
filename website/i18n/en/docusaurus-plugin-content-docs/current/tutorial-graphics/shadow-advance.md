@@ -161,6 +161,7 @@ returns 0 or 1, and then `select` can completely eliminate branch judgment.
 :::
 
 ## Omnidirectional Shadow
+![shadow](https://arched-graphics.oss-cn-shanghai.aliyuncs.com/img/cube_shadow.gif)
 
 Shadows cast from point light sources are generally processed using an omnidirectional shadow map, which saves the
 shadow map in a cube map and uses the depth cube map to draw shadows. Similar to cascaded shadows, we need to render a

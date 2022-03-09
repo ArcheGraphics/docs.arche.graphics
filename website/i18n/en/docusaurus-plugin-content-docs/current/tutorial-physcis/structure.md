@@ -3,6 +3,7 @@ sidebar_position: 1
 ---
 
 # Physical Component Overview
+![physx](https://arched-graphics.oss-cn-shanghai.aliyuncs.com/img/physx.gif)
 
 Physical components are not necessary elements of a game engine, but adding physical components can add real physical
 feedback to the scene and enhance the interactivity of the screen. Real-time physics and offline physics one is my main

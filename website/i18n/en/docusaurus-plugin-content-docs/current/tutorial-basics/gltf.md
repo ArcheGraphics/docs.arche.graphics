@@ -3,6 +3,7 @@ sidebar_position: 11
 ---
 
 # Resource: GLTF Format
+![gltf](https://arched-graphics.oss-cn-shanghai.aliyuncs.com/img/gltf_scene.gif)
 
 Compared with FBX, which is only applied to the animation system, Arche's loading of GLTF is more comprehensive.
 :::note 

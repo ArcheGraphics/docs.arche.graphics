@@ -3,6 +3,7 @@ sidebar_position: 11
 ---
 
 # 资源：GLTF格式
+![gltf](https://arched-graphics.oss-cn-shanghai.aliyuncs.com/img/gltf_scene.gif)
 
 相比于 FBX 只应用在动画系统，Arche 对于 GLTF 的加载要更加全面。
 :::note

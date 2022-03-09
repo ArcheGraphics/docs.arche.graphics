@@ -3,6 +3,7 @@ sidebar_position: 14
 ---
 
 # 阴影
+![shadow](https://arched-graphics.oss-cn-shanghai.aliyuncs.com/img/multi_shadow.gif)
 
 阴影是引擎中非常重要的功能，可以使得场景渲染的效果更加真实。在 Arche 当中集成了基于 ShadowMap 的阴影技术。 想要开启阴影非常简单，主要分为三个部分：
 

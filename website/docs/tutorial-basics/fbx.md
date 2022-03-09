@@ -3,6 +3,7 @@ sidebar_position: 10
 ---
 
 # 资源：FBX格式
+![fbx](https://arched-graphics.oss-cn-shanghai.aliyuncs.com/img/animation.gif)
 
 Arche 使用 [FBX SDK](https://www.autodesk.com/developer-network/platform-technologies/fbx-sdk-2016-1-2) 加载 FBX 格式文件，加载后的
 FBX 文件主要用于 CPU 蒙皮动画系统使用。因此，在 `SkinnedMeshRenderer` 上，直接可以加载对应的资源：

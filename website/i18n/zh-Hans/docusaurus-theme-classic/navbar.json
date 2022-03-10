@@ -21,11 +21,19 @@
   },
   "item.label.Playground.CascadeShadow": {
     "message": "级联阴影",
-    "description": "Navbar item with label Playground Skybox"
+    "description": "Navbar item with label Playground CascadeShadow"
   },
   "item.label.Playground.OmniShadow": {
     "message": "全向阴影",
-    "description": "Navbar item with label Playground Skybox"
+    "description": "Navbar item with label Playground OmniShadow"
+  },
+  "item.label.Playground.ClusterForward": {
+    "message": "Cluster Forward+",
+    "description": "Navbar item with label Playground ClusterForward"
+  },
+  "item.label.Playground.MultiLight": {
+    "message": "多光源",
+    "description": "Navbar item with label Playground MultiLight"
   },
   "item.label.GitHub": {
     "message": "GitHub",

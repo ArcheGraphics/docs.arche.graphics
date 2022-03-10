@@ -21,11 +21,19 @@
   },
   "item.label.Playground.CascadeShadow": {
     "message": "Cascaded Shadow",
-    "description": "Navbar item with label Playground Skybox"
+    "description": "Navbar item with label Playground CascadeShadow"
   },
   "item.label.Playground.OmniShadow": {
     "message": "Omnidirectional Shadow",
-    "description": "Navbar item with label Playground Skybox"
+    "description": "Navbar item with label Playground OmniShadow"
+  },
+  "item.label.Playground.ClusterForward": {
+    "message": "Cluster Forward+",
+    "description": "Navbar item with label Playground ClusterForward"
+  },
+  "item.label.Playground.MultiLight": {
+    "message": "Multi-Light",
+    "description": "Navbar item with label Playground MultiLight"
   },
   "item.label.GitHub": {
     "message": "GitHub",

@@ -75,6 +75,14 @@ const config = {
                             {
                                 to: '/playground/omni-shadow',
                                 label: 'Playground.OmniShadow',
+                            },
+                            {
+                                to: '/playground/cluster-forward',
+                                label: 'Playground.ClusterForward',
+                            },
+                            {
+                                to: '/playground/multi-light',
+                                label: 'Playground.MultiLight',
                             }
                         ]
                     },

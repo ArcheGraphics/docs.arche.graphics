@@ -50,9 +50,10 @@ export function createOmniShadowApp() {
         // init point light
         const light = rootEntity.createChild("light");
         light.transform.setPosition(0, 0, 0);
-        const directLight = light.addComponent(PointLight);
-        directLight.intensity = 0.5;
-        directLight.enableShadow = true;
+        const pointLight = light.addComponent(PointLight);
+        pointLight.distance = 100;
+        pointLight.intensity = 0.5;
+        pointLight.enableShadow = true;
 
         const planeMesh = PrimitiveMesh.createPlane(engine, 10, 10);
 

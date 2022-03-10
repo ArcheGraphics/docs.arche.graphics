@@ -30,6 +30,7 @@ export function createArche() {
         light.transform.setPosition(0, 10, 0);
         light.transform.lookAt(new Vector3());
         const pointLight = light.addComponent(PointLight);
+        pointLight.distance = 100;
         pointLight.intensity = 0.6;
 
         // init cube

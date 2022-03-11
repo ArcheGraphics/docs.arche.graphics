@@ -87,6 +87,10 @@ const config = {
                             {
                                 to: '/playground/multi-light',
                                 label: 'Playground.MultiLight',
+                            },
+                            {
+                                to: '/playground/physx-dynamic',
+                                label: 'Playground.PhysXDynamic',
                             }
                         ]
                     },

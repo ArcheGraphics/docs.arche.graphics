@@ -39,6 +39,10 @@
     "message": "多光源",
     "description": "Navbar item with label Playground MultiLight"
   },
+  "item.label.Playground.PhysXDynamic": {
+    "message": "PhysX 碰撞器",
+    "description": "Navbar item with label Playground MultiLight"
+  },
   "item.label.GitHub": {
     "message": "GitHub",
     "description": "Navbar item with label GitHub"

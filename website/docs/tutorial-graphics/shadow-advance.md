@@ -136,6 +136,7 @@ return select(1.0, u_shadowData.intensity, shadow_sample < 1.0);
 
 ## 万向阴影
 ![shadow](https://arched-graphics.oss-cn-shanghai.aliyuncs.com/img/cube_shadow.gif)
+
 从点光源投射的阴影，一般会使用万向阴影贴图来处理，即将阴影贴图保存在一个立方体贴图中，利用深度立方体贴图绘制阴影。和级联阴影类似，我们需要渲染一张贴图六次。
 但不同的是，立方体贴图具有六个面，因此可以通过 `wgpu::TextureViewDescriptor` 进行配置：
 ```cpp

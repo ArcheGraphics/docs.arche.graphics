@@ -22,5 +22,5 @@ sidebar_position: 1
 :::
 
 除此之外，我还将介绍如何使用 WebAssembly 技术将 PhysX 编译成为浏览器可以调用的 [PhysX.js](https://github.com/oasis-engine/physX.js) ，
-以及探索基于 WebGPU 的计算着色器实现浏览器上的物理仿真计算。
+以及 [nvcloth.js](https://github.com/oasis-engine/nvcloth.js) . 并且探索基于 WebGPU 的计算着色器实现浏览器上的物理仿真计算。
 这两项技术可能是实现浏览器高性能计算的重要途径，未来或许会基于这两大技术出现更多跨平台的高性能计算应用。

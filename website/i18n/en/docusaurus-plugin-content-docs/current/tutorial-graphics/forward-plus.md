@@ -170,7 +170,9 @@ if (macros.contains(POINT_LIGHT_COUNT)) {
 }
 ```
 
-:::tip It can also be seen from here that the essence of Forward+ lies in the culling of light sources, the most
+:::tip 
+
+It can also be seen from here that the essence of Forward+ lies in the culling of light sources, the most
 critical of which is not "Forward", but "Tile/Cluster-based". Even in deferred rendering, the exact same technique can
 be applied to achieve light culling. Therefore, in the implementation, Forward+ is written to `LightManager`, rather
 than directly constructed inside `Subpass`, which is in this consideration.

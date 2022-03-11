@@ -2,7 +2,7 @@
 sidebar_position: 6
 ---
 
-# Material
+# Material Overview
 
 With `ShaderData` and `RenderState` you can implement material `Material`, which is user-facing and integrates three
 underlying types:

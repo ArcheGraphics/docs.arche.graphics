@@ -11,6 +11,10 @@
     "message": "Tutorial - Graphics",
     "description": "The label for category Tutorial - Extras in sidebar tutorialSidebar"
   },
+  "sidebar.tutorialSidebar.category.Material": {
+    "message": "Material",
+    "description": "The label for category Tutorial - Extras in sidebar tutorialSidebar"
+  },
   "sidebar.tutorialSidebar.category.Tutorial - Physics": {
     "message": "Tutorial - Physics",
     "description": "The label for category Tutorial - Extras in sidebar tutorialSidebar"

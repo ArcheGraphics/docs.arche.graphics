@@ -3,6 +3,7 @@ sidebar_position: 1
 ---
 
 # Physical Component Overview
+
 ![physx](https://arched-graphics.oss-cn-shanghai.aliyuncs.com/img/physx.gif)
 
 Physical components are not necessary elements of a game engine, but adding physical components can add real physical
@@ -28,7 +29,8 @@ technology.
 :::
 
 In addition to this, I will also introduce how to use WebAssembly technology to compile PhysX
-into [PhysX.js](https://github.com/oasis-engine/physX.js) that the browser can call, And explore WebGPU-based compute
-shaders for physically simulated computations on the browser. These two technologies may be an important way to achieve
+into [PhysX.js](https://github.com/oasis-engine/physX.js) that the browser can call,
+And [nvcloth.js](https://github.com/oasis-engine/nvcloth.js) . And explore WebGPU-based compute shaders to implement
+physics simulation calculations on the browser. These two technologies may be an important way to achieve
 high-performance computing in browsers, and there may be more cross-platform high-performance computing applications
 based on these two technologies in the future.

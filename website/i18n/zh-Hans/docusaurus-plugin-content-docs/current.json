@@ -11,6 +11,10 @@
     "message": "教程 - 图形渲染",
     "description": "The label for category Tutorial - Extras in sidebar tutorialSidebar"
   },
+  "sidebar.tutorialSidebar.category.Material": {
+    "message": "材质",
+    "description": "The label for category Tutorial - Extras in sidebar tutorialSidebar"
+  },
   "sidebar.tutorialSidebar.category.Tutorial - Physics": {
     "message": "教程 - 物理模拟",
     "description": "The label for category Tutorial - Extras in sidebar tutorialSidebar"

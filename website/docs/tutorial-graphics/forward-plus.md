@@ -150,7 +150,9 @@ if (macros.contains(POINT_LIGHT_COUNT)) {
 }
 ```
 
-:::tip 从这里也可以看出，其实Forward+的本质在于光源剔除，其中最关键的并不是 "Forward"，而是 "Tile/Cluster-based"。即使在延迟渲染中，可以完全应用一样的技术实现光源剔除。
+:::tip 
+
+从这里也可以看出，其实Forward+的本质在于光源剔除，其中最关键的并不是 "Forward"，而是 "Tile/Cluster-based"。即使在延迟渲染中，可以完全应用一样的技术实现光源剔除。
 因此在实现中，将Forward+写入到了`LightManager`，而不是直接构造到 `Subpass` 内部，就是处于这样的考虑。
 :::
 

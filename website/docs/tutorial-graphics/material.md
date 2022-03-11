@@ -2,7 +2,7 @@
 sidebar_position: 6
 ---
 
-# 材质
+# 材质总揽
 
 有了 `ShaderData` 和 `RenderState` 就可以实现材质 `Material` 了，材质是面向用户的，将三个底层类型整合在一起：
 

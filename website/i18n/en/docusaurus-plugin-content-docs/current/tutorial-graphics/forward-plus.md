@@ -25,9 +25,10 @@ void ForwardApplication::updateGPUTask(wgpu::CommandEncoder& commandEncoder) {
 }
 ```
 
-:::tip 
-Both `ShadowManager` and `LightManager` are singleton patterns, users can also extend the capabilities of the
-engine in a similar way, and insert their own singleton manager updates through subclasses.
+:::tip
+
+Both `ShadowManager` and `LightManager` are singleton patterns, users can also extend the capabilities of the engine in
+a similar way, and insert their own singleton manager updates through subclasses.
 :::
 
 Therefore, the main logic is concentrated in the `draw` function:
@@ -74,8 +75,8 @@ we only need to focus on compute shader itself.
 
 ### Calculate the Bounding box of the Cluster
 
-The logic of calculating the bounding box is to let each thread on GPU calculate the bounding box of
-the screen space, and then go to the view space through the inverse transformation of the projection matrix:
+The logic of calculating the bounding box is to let each thread on GPU calculate the bounding box of the screen space,
+and then go to the view space through the inverse transformation of the projection matrix:
 
 ```wgsl
 fn clipToView(clip : vec4<f32>) -> vec4<f32> {
@@ -121,6 +122,60 @@ u_clusterLights.lights[tileIndex].offset = offset;
 u_clusterLights.lights[tileIndex].point_count = clusterLightCount;
 ```
 
+### Modify the Render Material
+
+After completing the calculation, we only need to modify the traversal method of the light source in the original
+rendering material. Without this option, each fragment would go through all lights, even if the light had no effect on
+the fragment. But after you have the light source list, you can search for the corresponding Cluster according to the
+position of the fragment, take out the light source list, and traverse a few light sources. Doing so greatly reduces the
+overhead of light source calculations. In the case
+of [Playground](https://arche.graphics/zh-Hans/playground/multi-light), you can see that it is easy to render dozens of
+light sources.
+
+```cpp
+if (macros.contains(POINT_LIGHT_COUNT)) {
+    source += "{\n";
+    
+    if (LightManager::getSingleton().enableForwardPlus()) {
+        source += "let lightCount = u_clusterLights.lights[clusterIndex].point_count;\n";
+    } else {
+        source += fmt::format("let lightCount = {}u;\n", (int)*macros.macroConstant(POINT_LIGHT_COUNT));
+    }
+    
+    source += "var i:u32 = 0u;\n";
+    source += "loop {\n";
+    source += "if (i >= lightCount) { break; }\n";
+    
+    if (LightManager::getSingleton().enableForwardPlus()) {
+        source += "let index = u_clusterLights.indices[lightOffset + i];\n";
+    } else {
+        source += "let index = i;\n";
+    }
+    
+    source += fmt::format("    var direction = {}.v_pos - u_pointLight[index].position;\n", _input);
+    source += "    var dist = length( direction );\n";
+    source += "    direction = direction / dist;\n";
+    source += "    var decay = clamp(1.0 - pow(dist / u_pointLight[index].distance, 4.0), 0.0, 1.0);\n";
+    source += "\n";
+    source += "    var d =  max( dot( N, -direction ), 0.0 ) * decay;\n";
+    source += "    lightDiffuse = lightDiffuse + u_pointLight[index].color * d;\n";
+    source += "\n";
+    source += "    var halfDir = normalize( V - direction );\n";
+    source += "    var s = pow( clamp( dot( N, halfDir ), 0.0, 1.0 ), u_blinnPhongData.shininess )  * decay;\n";
+    source += "    lightSpecular = lightSpecular + u_pointLight[index].color * s;\n";
+
+    source += "i = i + 1u;\n";
+    source += "}\n";
+    source += "}\n";
+}
+```
+
+:::tip It can also be seen from here that the essence of Forward+ lies in the culling of light sources, the most
+critical of which is not "Forward", but "Tile/Cluster-based". Even in deferred rendering, the exact same technique can
+be applied to achieve light culling. Therefore, in the implementation, Forward+ is written to `LightManager`, rather
+than directly constructed inside `Subpass`, which is in this consideration.
+:::
+
 ## Debugging Tools
 
 During development, as with shadows, there is a need to debug "precomputed" results. However, unlike ShadowMap, the
@@ -138,3 +193,7 @@ encoder.flush();
 
 The core logic of debugging the shader is to find the Cluster through the fragment, then get the number of light sources
 saved in it, and use the number as the color for debugging.
+[Playground](https://arche.graphics/zh-Hans/playground/cluster-forward) This case shows the corresponding effect. In the
+case, you will see that the debug material will render each color shade. The different rectangles correspond to the
+number of current light sources that are affected. With this tool it is easy to verify that the precomputed result of
+the light source list is reasonable.

@@ -65,3 +65,12 @@ playground 项目同样由 create-arche-app 脚手架生成，并且包含一系
 ```bash
 npm link ../Arche.js/packages/* --no-package-lock
 ```
+
+#### 浏览器配置
+**目前 WebGPU 还不能直接跑在正式版的 Chrome 上，需要首先下载 [Chrome Canary](https://www.google.com/chrome/canary/)**  下载后在地址栏输入：
+```
+chrome://flags/
+```
+接着搜索 `Unsafe WebGPU` 设置 Enabled 状态，就可以看到 [Arche-Graphics](https://arche.graphics/zh-Hans/playground/cascade-shadow) 中的演示案例。
+
+目前在 MacOS，Windows10 的 Chrome 101.0.4935.0 版本上已经测试通过。如果你的系统是Windows7等早期平台，因为这些平台上没有全功能的D3D12，因此可能渲染会出现问题。

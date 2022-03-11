@@ -76,3 +76,18 @@ to modify the engine and test it, you can use the `npm link` command to connect:
 ```bash
 npm link ../Arche.js/packages/* --no-package-lock
 ````
+
+#### Browser configuration
+
+**Currently WebGPU cannot run directly on the official version of Chrome, you need to
+download [Chrome Canary](https://www.google.com/chrome/canary/)** After downloading, enter in the address bar:
+
+````
+chrome://flags/
+````
+
+Then search for `Unsafe WebGPU` to set the Enabled state, and you can see the demo
+in [Arche-Graphics](https://arche.graphics/zh-Hans/playground/cascade-shadow).
+
+It has been tested on the Chrome 101.0.4935.0 version of MacOS and Windows 10. If your system is an earlier platform
+such as Windows 7, there may be problems with rendering because there is no full-featured D3D12 on these platforms.

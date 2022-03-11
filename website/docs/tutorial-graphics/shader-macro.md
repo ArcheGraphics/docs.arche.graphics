@@ -51,7 +51,7 @@ void ShaderMacroCollection::enableMacro(const std::string& macroName, double val
 ```
 
 ## 合并顺序
-宏主要存在于四种类型：`Scene`， `Camera`， `Renderer`， `Material`，对应于：
+对于渲染而言，宏主要存在于四种类型：`Scene`， `Camera`， `Renderer`， `Material`，对应于：
 ```cpp
 /**
  * Shader data grouping.

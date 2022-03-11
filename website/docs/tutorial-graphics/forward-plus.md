@@ -82,8 +82,9 @@ fn screen2View(screen : vec4<f32>) -> vec4<f32> {
 
 ### 在每个 Cluster 中保存光源列表
 
-逐帧需要计算的，就是光源的列表，使得在进行渲染时，可以根据片段的位置找到对应的 Cluster，提取出光源列表进行光照的计算。这样一来大量不受到光照的片段就不需要进行昂贵的光源遍历。 
-由于我们已经对每一个 Cluster 都计算了包围盒，接下来就是循环光源，判断以光源坐标为中心，辐射范围为半径的圆，是不是和包围盒相交。
+逐帧需要计算的，就是光源的列表，使得在进行渲染时，可以根据片段的位置找到对应的 Cluster，提取出光源列表进行光照的计算。这样一来大量不受到光照的片段就不需要进行昂贵的光源遍历。 由于我们已经对每一个 Cluster
+都计算了包围盒，接下来就是循环光源，判断以光源坐标为中心，辐射范围为半径的圆，是不是和包围盒相交。
+
 ```wgsl
 if (!lightInCluster) {
     let lightViewPos = u_cluster_view.matrix * vec4<f32>(u_spotLight[i].position, 1.0);
@@ -91,8 +92,10 @@ if (!lightInCluster) {
     lightInCluster = sqDist <= (range * range);
 }
 ```
+
 当 `lightInCluster` 为 true 时就讲对应的光源的指标记录下来。由于我们需要一个数组记录这些信息，但每个 thread 都是并行计算的，因此需要原子操作计算每个 Cluster 在这个数组中的起点。
 并且基于这一起点，将计算得到的信息保存下来：
+
 ```wgsl
 var offset = atomicAdd(&u_clusterLights.offset, clusterLightCount);
 
@@ -103,8 +106,58 @@ u_clusterLights.lights[tileIndex].offset = offset;
 u_clusterLights.lights[tileIndex].point_count = clusterLightCount;
 ```
 
+### 修改渲染材质
+
+完成了与计算之后，我们仅需要修改原来的渲染材质中光源的遍历方式。过去没有这一选项时，每一个片段都会遍历所有的光源，即使这一光源对该片段没有任何作用。
+但有了光源列表后，就可以根据片段的位置搜索对应的Cluster，取出光源列表，并且遍历少数光源即可。这样做大大降低了光源计算的开销。
+在[游乐场](https://arche.graphics/zh-Hans/playground/multi-light)的案例中，可以看到很容易渲染出几十盏光源的效果。
+
+```cpp
+if (macros.contains(POINT_LIGHT_COUNT)) {
+    source += "{\n";
+    
+    if (LightManager::getSingleton().enableForwardPlus()) {
+        source += "let lightCount = u_clusterLights.lights[clusterIndex].point_count;\n";
+    } else {
+        source += fmt::format("let lightCount = {}u;\n", (int)*macros.macroConstant(POINT_LIGHT_COUNT));
+    }
+    
+    source += "var i:u32 = 0u;\n";
+    source += "loop {\n";
+    source += "if (i >= lightCount) { break; }\n";
+    
+    if (LightManager::getSingleton().enableForwardPlus()) {
+        source += "let index = u_clusterLights.indices[lightOffset + i];\n";
+    } else {
+        source += "let index = i;\n";
+    }
+    
+    source += fmt::format("    var direction = {}.v_pos - u_pointLight[index].position;\n", _input);
+    source += "    var dist = length( direction );\n";
+    source += "    direction = direction / dist;\n";
+    source += "    var decay = clamp(1.0 - pow(dist / u_pointLight[index].distance, 4.0), 0.0, 1.0);\n";
+    source += "\n";
+    source += "    var d =  max( dot( N, -direction ), 0.0 ) * decay;\n";
+    source += "    lightDiffuse = lightDiffuse + u_pointLight[index].color * d;\n";
+    source += "\n";
+    source += "    var halfDir = normalize( V - direction );\n";
+    source += "    var s = pow( clamp( dot( N, halfDir ), 0.0, 1.0 ), u_blinnPhongData.shininess )  * decay;\n";
+    source += "    lightSpecular = lightSpecular + u_pointLight[index].color * s;\n";
+
+    source += "i = i + 1u;\n";
+    source += "}\n";
+    source += "}\n";
+}
+```
+
+:::tip 从这里也可以看出，其实Forward+的本质在于光源剔除，其中最关键的并不是 "Forward"，而是 "Tile/Cluster-based"。即使在延迟渲染中，可以完全应用一样的技术实现光源剔除。
+因此在实现中，将Forward+写入到了`LightManager`，而不是直接构造到 `Subpass` 内部，就是处于这样的考虑。
+:::
+
 ## 调试工具
+
 在开发过程中和阴影一样，都需要调试"预计算"的结果。但是，和 ShadowMap 不同，这里得到的结果是一个数组，无法直接可视化出来，因此最佳手段是提供一个用于调试的着色器：
+
 ```cpp
 encoder.addEntry({{"in", "VertexOut"}}, {"out", "Output"},  [&](std::string &source){
     source += "let clusterIndex : u32 = getClusterIndex(in.fragCoord);\n";
@@ -116,3 +169,5 @@ encoder.flush();
 ```
 
 调试着色器的核心逻辑在于，通过片段找到 Cluster，然后得到其中保存的光源数量，用数量作为颜色进行调试。
+[游乐场](https://arche.graphics/zh-Hans/playground/cluster-forward)
+中的这一案例展示了对应的效果，在案例中会看到，调试材质会渲染出一个个颜色深浅不同的矩形，对应了收到影响当前光源数量。 借助这一工具很容易验证光源列表的预计算的结果是不是合理。

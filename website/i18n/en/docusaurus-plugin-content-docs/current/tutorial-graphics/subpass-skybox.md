@@ -9,9 +9,10 @@ critically relies on almost all the techniques described above. But if you just 
 implement a specific function, or quickly experiment with a rendering feature, it will be very cumbersome to build the
 rendering pipeline in such a way that is highly dependent on other modules. Fortunately, the organization of `Subpass`
 does not depend on other components, and the interface of WebGPU can be used here to manually build to achieve the
-rendering function. The skybox described in this article is one such example. By encapsulating the rendering of the
-skybox as `SkyboxSubpass`, this ability can be loaded or removed according to the situation, and the process of scene
-rendering can be flexibly controlled.
+rendering function. The skybox introduced in this article is such an example. Interested readers can directly see the
+specific case effect in [Playground](https://arche.graphics/zh-hans/playground/skybox/). By encapsulating the rendering
+of the skybox as `SkyboxSubpass`, this ability can be loaded or removed according to the situation, and the process of
+scene rendering can be flexibly controlled.
 
 `SkyboxSubpass` hardly depends on any externally packaged components, including rendering pipeline configuration and
 shader resource binding, which are all set manually. In the `prepare` function we implement a long list of

@@ -3,11 +3,13 @@ sidebar_position: 14
 ---
 
 # Shadow
+
 ![shadow](https://arched-graphics.oss-cn-shanghai.aliyuncs.com/img/multi_shadow.gif)
 
-Shadows are a very important part in the engine, which can make the rendering of the scene more realistic. The shadow
-technology based on ShadowMap is integrated in Arche. It is very simple to turn on shadows, and it is mainly divided
-into three parts:
+Shadow is a very important function in the engine, which can make the effect of scene rendering more realistic, and
+there is also a corresponding display in the [playground](https://arche.graphics/zh-Hans/playground/cascade-shadow) of
+the website. The shadow technology based on ShadowMap is integrated in Arche. It is very simple to turn on the shadow,
+it is mainly divided into three parts
 
 1. The light source settings enable shadows to render ShadowMap
 2. The Projector chooses to cast a shadow so that it is rendered when the ShadowMap is rendered

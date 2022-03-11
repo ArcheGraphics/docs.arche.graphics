@@ -4,6 +4,8 @@ sidebar_position: 17
 
 # Clustered Forward+
 
+![light](https://arched-graphics.oss-cn-shanghai.aliyuncs.com/img/multi-light.gif)
+
 Due to the difficulties of deferred rendering in bandwidth usage, transparent objects, multi-material rendering, etc.,
 the forward rendering mode is mainly used in Arche-cpp, and Forward+ is integrated to cull light sources. There are
 generally two types of light source culling, one is Tile-based, which divides the screen space, and another is

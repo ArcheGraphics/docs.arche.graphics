@@ -4,6 +4,8 @@ sidebar_position: 17
 
 # Clustered Forward+
 
+![light](https://arched-graphics.oss-cn-shanghai.aliyuncs.com/img/multi-light.gif)
+
 由于延迟渲染在带宽使用，透明物体，多材质渲染等问题上的困难，在 Arche-cpp 当中主要采用了前向渲染的模式，并且整合 Forward+ 对光源进行剔除。 光源剔除一般有两种类型，一种是
 Tile-based，对屏幕空间做划分，另外一种是 Cluster-based 对视锥体做划分。两种方式本质是类似的，这里以 Cluster-based 为基础进行介绍。
 在开发的过程中，我逐渐意识到Forward+和阴影渲染非常类似，都是需要在正式渲染之前做一些"预计算"的准备工作，前者是计算逐 Cluster 计算光源列表，后者是渲染 ShadowMap，所以最终的代码结构也就非常相似。

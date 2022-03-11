@@ -19,6 +19,10 @@
     "message": "Skybox",
     "description": "Navbar item with label Playground Skybox"
   },
+  "item.label.Playground.FramebufferPicker": {
+    "message": "FramebufferPicker",
+    "description": "Navbar item with label Playground Skybox"
+  },
   "item.label.Playground.CascadeShadow": {
     "message": "Cascaded Shadow",
     "description": "Navbar item with label Playground CascadeShadow"

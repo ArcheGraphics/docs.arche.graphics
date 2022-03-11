@@ -4,6 +4,8 @@ sidebar_position: 15
 
 # 阴影 - 高级
 
+![shadow](https://arched-graphics.oss-cn-shanghai.aliyuncs.com/img/cube_shadow.gif)
+
 在上一篇文章中，我们利用 `ShadowSubpass` 将渲染一张 ShadowMap 的操作进行封装. 这么一来，只需要改变 `wgpu::RenderPassDepthStencilAttachment`
 上绑定的贴图，就可以很容易得到想要的 ShadowMap。 同时，为了减少对着色器贴图绑定通道的占用，因此将渲染出来的 ShadowMap 再打包一个 TextureArray 当中。
 对于聚光灯来说，根据方向和范围很容易决定从光源进行渲染时所需要的透视矩阵和视图矩阵。 但是，对于有向光来说就不是特别容易了，因为有向光是无界的，如果计算透视矩阵采用非常大的视锥体，会造成贴图精度的浪费。
@@ -135,7 +137,6 @@ return select(1.0, u_shadowData.intensity, shadow_sample < 1.0);
 :::
 
 ## 万向阴影
-![shadow](https://arched-graphics.oss-cn-shanghai.aliyuncs.com/img/cube_shadow.gif)
 
 从点光源投射的阴影，一般会使用万向阴影贴图来处理，即将阴影贴图保存在一个立方体贴图中，利用深度立方体贴图绘制阴影。和级联阴影类似，我们需要渲染一张贴图六次。
 但不同的是，立方体贴图具有六个面，因此可以通过 `wgpu::TextureViewDescriptor` 进行配置：

@@ -4,6 +4,8 @@ sidebar_position: 13
 
 # Framebuffer Picker
 
+![picker](https://arched-graphics.oss-cn-shanghai.aliyuncs.com/img/picker.gif)
+
 Frame buffer picking is a very important function in the development of graphics editors. This function marks each
 object in the scene with a color for rendering, and then reads the rendered texture and determines which object is
 picked by color. Compared to raycast, which relies on physics-engine, framebuffer picking only depends

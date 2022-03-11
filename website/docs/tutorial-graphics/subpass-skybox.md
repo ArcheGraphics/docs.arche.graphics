@@ -4,6 +4,8 @@ sidebar_position: 12
 
 # 渲染子通道： 天空盒
 
+![skybox](https://arched-graphics.oss-cn-shanghai.aliyuncs.com/img/skybox.gif)
+
 围绕着 `ForwardSubpass` 我们描述了如何构建一条兼具灵活性和性能的渲染管线，这条关键依赖于几乎所有前面介绍的技术。
 但如果只是希望让渲染管线实现某个特定的功能，或者快速实验某个渲染特性，使用这样一种高度依赖其他模块的方式构建渲染管线，就会感到非常繁琐。 
 幸运的是，`Subpass` 的组织方式并不对其他组件产生依赖，在这里完全可以使用 WebGPU 的接口，手工搭建以实现渲染的功能。

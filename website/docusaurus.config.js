@@ -69,6 +69,10 @@ const config = {
                                 label: 'Playground.Skybox',
                             },
                             {
+                                to: '/playground/framebuffer-picker',
+                                label: 'Playground.FramebufferPicker',
+                            },
+                            {
                                 to: '/playground/cascade-shadow',
                                 label: 'Playground.CascadeShadow',
                             },

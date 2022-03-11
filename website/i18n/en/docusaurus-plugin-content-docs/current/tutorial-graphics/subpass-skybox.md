@@ -4,6 +4,8 @@ sidebar_position: 12
 
 # Render Subpass: Skybox
 
+![skybox](https://arched-graphics.oss-cn-shanghai.aliyuncs.com/img/skybox.gif)
+
 Around `ForwardSubpass` we describe how to build a rendering pipeline that combines flexibility and performance, which
 critically relies on almost all the techniques described above. But if you just want to make the rendering pipeline
 implement a specific function, or quickly experiment with a rendering feature, it will be very cumbersome to build the

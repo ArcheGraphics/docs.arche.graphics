@@ -19,6 +19,10 @@
     "message": "天空盒",
     "description": "Navbar item with label Playground Skybox"
   },
+  "item.label.Playground.FramebufferPicker": {
+    "message": "帧缓冲拾取",
+    "description": "Navbar item with label Playground Skybox"
+  },
   "item.label.Playground.CascadeShadow": {
     "message": "级联阴影",
     "description": "Navbar item with label Playground CascadeShadow"

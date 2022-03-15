@@ -89,6 +89,10 @@ const config = {
                                 label: 'Playground.MultiLight',
                             },
                             {
+                                to: '/playground/gpu-particle',
+                                label: 'Playground.GPUParticle',
+                            },
+                            {
                                 to: '/playground/physx-dynamic',
                                 label: 'Playground.PhysXDynamic',
                             }

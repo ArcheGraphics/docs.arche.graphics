@@ -39,9 +39,13 @@
     "message": "多光源",
     "description": "Navbar item with label Playground MultiLight"
   },
+  "item.label.Playground.GPUParticle": {
+    "message": "GPU粒子",
+    "description": "Navbar item with label Playground GPUParticle"
+  },
   "item.label.Playground.PhysXDynamic": {
     "message": "PhysX 碰撞器",
-    "description": "Navbar item with label Playground MultiLight"
+    "description": "Navbar item with label Playground PhysXDynamic"
   },
   "item.label.GitHub": {
     "message": "GitHub",

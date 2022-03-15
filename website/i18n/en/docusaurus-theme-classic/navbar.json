@@ -39,9 +39,13 @@
     "message": "Multi-Light",
     "description": "Navbar item with label Playground MultiLight"
   },
+  "item.label.Playground.GPUParticle": {
+    "message": "GPU-Particle",
+    "description": "Navbar item with label Playground GPUParticle"
+  },
   "item.label.Playground.PhysXDynamic": {
     "message": "PhysX Collider",
-    "description": "Navbar item with label Playground MultiLight"
+    "description": "Navbar item with label Playground PhysXDynamic"
   },
   "item.label.GitHub": {
     "message": "GitHub",
